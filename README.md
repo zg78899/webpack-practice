@@ -9,17 +9,19 @@
 
 1. 내보내는 경우(export ) : 
 
-   module.exports = {
+   ~~~javascript
+module.exports = {
+   	변수 
+}  
+   ~~~
 
-   ​		변수 
+    가져오는 경우(import):
 
-   }  
-
-   ​      가져오는 경우(import):
-
+   ~~~javascript
    const 변수  = require('exports하는경로'); 
+   ~~~
 
-node index.js:index.js 파일을 node로 확인
+node index.js: index.js 파일을 node로 확인
 
 
 
@@ -62,8 +64,8 @@ import {변수 } from 'export 파일의 상대 경로'
 webpack은 module bundler이다. 
 
 1. webpack의 기본 구조
-entry : 모듈의 의존 관계를 이해하기 위한 시작점을 설정
-output: Webpack이 생성하는 번들 파일에 대한 정보를 설정(번들 파일의 위치 설정)
+**entry :** 모듈의 의존 관계를 이해하기 위한 시작점을 설정
+**output:** Webpack이 생성하는 번들 파일에 대한 정보를 설정(번들 파일의 위치 설정)
 
 webpack-cli 방식
 1)npm init -y
@@ -72,6 +74,8 @@ webpack-cli 방식
 
 -웹 webapack 설정 파일에서 설정 webpack.config.js파일 생성
 __dirname은 절대 파일의 절대 경로를 나타냄
+
+~~~javscript
 const path = require('path');
 module.exports = {
   entry:'./src/index.js',
@@ -81,6 +85,45 @@ module.exports = {
   },
   target:'node'
 };
+~~~
+
+기본 구조:**mode**
+
+1.Package.json --save-dev,--save
+
+​	1)애플리케이션 내부에 직접 포함되는 모듈( dependencies):--save
+
+​	2)개발과정에서 필요한 모듈(devDependencies):--sace-dev
+
+2.개발환경과 프로덕션 환경 
+
+3.Mode & Webpack-merge
+
+기본구조:**Loader** : 다양한 모둘들을 입력받아 처리하는 역할 
+
+~~~javascript
+module.exports={
+  module:{
+    rules:[loader1,loader2]
+  }
+}
+~~~
 
 2.  Webpack의 설정 
 3. Webpack의 활용
+
+기본 구조 : **plugin**
+
+npm i html-webpack-plugin -D(--save-dev)
+
+~~~javascript
+module.exports = {
+  plugins:[new Plugin({...option}),...];
+}
+~~~
+
+  
+
+handlebars: npm i handlebars -D
+
+webapck & caching 
