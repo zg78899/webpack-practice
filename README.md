@@ -127,3 +127,9 @@ module.exports = {
 handlebars: npm i handlebars -D
 
 webapck & caching 
+
+chunk & chunkhash
+
+1. runtime chunk
+2. vender chunk(외부의 모듈들만을 모음)
+3. 
