@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"NODE_ENV=DEVELOPMENT webpack-dev-server --config webpack.dev.js",
+    "start": "NODE_ENV=DEVELOPMENT webpack-dev-server --config webpack.dev.js",
     "dev": "NODE_ENV=DEVELOPMENT webpack --config webpack.dev.js",
     "build": "NODE_ENV=PRODUCTION webpack --config webpack.prod.js"
   },
@@ -15,10 +15,12 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.3.0",
     "cssnano": "^4.1.10",
+    "file-loader": "^6.1.0",
     "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^4.4.1",
     "mini-css-extract-plugin": "^0.11.2",
     "terser-webpack-plugin": "^4.2.1",
+    "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",

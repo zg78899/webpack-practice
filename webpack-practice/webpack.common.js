@@ -5,10 +5,13 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
+
 const isProduction = process.env.NODE_ENV === 'PRODUCTION';
 
+//data:mediatype;base64,data
+
 module.exports = {
- entry:'./index.js',
+ entry:'./src/index.js',
  output:{
    filename:'[name].[chunkhash].js', // has contenthash chunkhash
    path:path.resolve(__dirname,'dist')
@@ -31,6 +34,31 @@ module.exports = {
     {
       test:/\.hbs$/,
       use:['handlebars-loader']
+    },{
+      test:/\.(png|jpg?g|gif)$/i,
+      use:[{
+        loader:'file-loader',
+        options:{
+          name(){
+            if(!isProduction){
+              return '[path][name].[ext]'
+            }
+            return '[contenthash].[ext]'
+          },
+          publicPath:'assets/',
+          outputPath:'assets/'
+        }
+      }],
+    },{
+      test:/\.svg$/,
+      use:[{
+        //문서의 요청 리소스가 줄어 리소스 를 아낄 수 있다.
+        loader:'url-loader',
+        options:{
+          //파일크기에 따라, 제한을 걸어둠,바이트 크기의 숫자가 들어감
+          limit: 8192
+        }
+      }]
     }
   ]
  },
@@ -53,7 +81,7 @@ module.exports = {
    }),
    new CleanWebpackPlugin(),
    new webpack.DefinePlugin({
-    IS_PRODUCTION:true,
+    IS_PRODUCTION:isProduction,
    }),
  ],
 }
