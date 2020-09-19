@@ -8,12 +8,13 @@ const webpack = require('webpack');
 
 const postcssLoader = {
   loader:'postcss-loader',
-  options:{
-    config:{
-      path:'postcss.config.js'
+  options: {
+    config: {
+      path: 'postcss.config.js'
     }
   }
-}
+};
+
 const isProduction = process.env.NODE_ENV === 'PRODUCTION';
 
 //data:mediatype;base64,data
