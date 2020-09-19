@@ -4,9 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const { loader } = require('mini-css-extract-plugin');
 
 
+const postcssLoader = {
+  loader:'postcss-loader',
+  options:{
+    config:{
+      path:'postcss.config.js'
+    }
+  }
+}
 const isProduction = process.env.NODE_ENV === 'PRODUCTION';
 
 //data:mediatype;base64,data
@@ -47,12 +54,14 @@ module.exports = {
                 modules: true
                 }
               },
+              postcssLoader,
               'sass-loader' //1번째 
             ]
           },{
             use:[ //global-loader
               MiniCssExtractPlugin.loader,
               'css-loader',
+              postcssLoader,
               'sass-loader'
             ]
           }
