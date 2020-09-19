@@ -5,13 +5,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
-
 const postcssLoader = {
   loader:'postcss-loader',
   options: {
-    config: {
-      path: 'postcss.config.js'
-    }
+      config:{
+        path:'postcss.config.js'
+      }
   }
 };
 

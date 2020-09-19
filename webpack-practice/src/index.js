@@ -3,6 +3,8 @@ import style from './index.module.scss';
 import background from './images/background.jpg';
 import bearSvg from './images/bear.svg'
 import $ from 'jquery';
+import '@babel/polyfill';
+
 
 function component() {
   const element = document.createElement('div');
